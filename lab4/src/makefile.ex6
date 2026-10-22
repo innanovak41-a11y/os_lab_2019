@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I. -Wall
+
+all: parallel_sum
+
+parallel_sum: parallel_sum.c utils.c
+	$(CC) $(CFLAGS) parallel_sum.c utils.c -o parallel_sum -lpthread
+
+clean:
+	rm -f parallel_sum

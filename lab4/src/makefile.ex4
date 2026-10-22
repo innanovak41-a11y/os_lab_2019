@@ -1,0 +1,13 @@
+CC=gcc
+CFLAGS=-I. -Wall
+
+all: parallel_min_max process_memory
+
+parallel_min_max: parallel_min_max.c find_min_max.c utils.c
+	$(CC) $(CFLAGS) parallel_min_max.c find_min_max.c utils.c -o parallel_min_max
+
+process_memory: process_memory.c
+	$(CC) $(CFLAGS) process_memory.c -o process_memory -Wno-implicit-int -Wno-return-type
+
+clean:
+	rm -f parallel_min_max process_memory
